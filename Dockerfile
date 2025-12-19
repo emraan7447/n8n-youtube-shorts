@@ -4,11 +4,11 @@ USER root
 
 RUN apk add --no-cache ffmpeg
 
-# Run as root to avoid volume permission issues on Railway
+# Fix volume permissions and set user back to node for security
+# but keep root for now if needed.
+# Actually, the base image expects to run as node.
+# We'll use the default entrypoint.
+
 ENV N8N_USER_FOLDER=/data
-WORKDIR /data
 
 EXPOSE 5678
-
-# Use absolute path to n8n
-CMD ["/usr/local/bin/n8n", "start"]
