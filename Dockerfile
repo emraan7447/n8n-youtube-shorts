@@ -4,10 +4,7 @@ USER root
 
 RUN apk add --no-cache ffmpeg
 
-RUN mkdir -p /data && chown -R node:node /data
-
-USER node
-
+# Run as root to avoid volume permission issues on Railway
 ENV N8N_USER_FOLDER=/data
 WORKDIR /data
 
