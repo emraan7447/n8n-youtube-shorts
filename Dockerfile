@@ -10,4 +10,5 @@ WORKDIR /data
 
 EXPOSE 5678
 
-CMD ["n8n", "start"]
+# Use absolute path to n8n
+CMD ["/usr/local/bin/n8n", "start"]
